@@ -17,7 +17,7 @@ SIMHub 是一款管理实体 SIM / eSIM 卡的 App（iPhone / iPad / Mac，以�
 | iOS / iPadOS | **29.22 (3)** | `SIMHub-29.22.ipa` | iOS / iPadOS 17.0 及以上 | **用免费 Apple ID 自签下这个（大多数人）。** 已去掉免费账号签不了的权限和扩展，任何签名工具默认设置直接签 |
 | iOS / iPadOS（带小组件） | 29.22 (3) | `SIMHub-29.22-widgets.ipa` | iOS / iPadOS 17.0 及以上 | **只适合付费开发者账号自签。** 保留小组件和 App Group，签名工具要支持扩展签名；免费 Apple ID 签不了 |
 | iOS / iPadOS（旧系统） | SIMKit 7.0 (1) | `SIMKit.ipa` | iOS / iPadOS 15.0 及以上 | SIMHub 的 iOS 15 兼容版，见下方「SIMKit」 |
-| macOS | 29.11 (1) | `SIMHub-macOS-29.11.zip` | macOS 14 及以上 | 已通过 Apple 公证，见下方「Mac 版」 |
+| macOS | 29.22 (3) | `SIMHub-macOS-29.22.zip` | macOS 14 及以上 | 已通过 Apple 公证，见下方「Mac 版」 |
 | Android | 1.1.1 (6) | `SIMHub-Android-1.1.1.apk` | Android 8.0 及以上 | 见下方「Android 版」 |
 
 ## 怎么安装
@@ -59,7 +59,7 @@ SIMKit 是 SIMHub 的 iOS 15 兼容版，功能与 SIMHub 基本一致，适合�
 
 ## Mac 版
 
-[下载 SIMHub-macOS-29.11.zip](../../releases/tag/mac-v29.11)
+[下载 SIMHub-macOS-29.22.zip](../../releases/tag/mac-v29.22)
 
 **安装**：下载后双击解压，把 `SIMHub.app` 拖进「应用程序」文件夹，双击打开。App 已通过 Apple 公证，不需要重签，也不会出现「无法验证开发者」的提示。
 
@@ -116,6 +116,12 @@ b5aec67294e581a1680ec1b65b0b75fe7ab50438c8473528a85af452335df515
 
 ```
 70211c7fcf8eb704e4fb58cab130605928946cce8d31a323b75f7fa7225a7e79
+```
+
+`SIMHub-macOS-29.22.zip` (Mac 29.22 (3)) SHA-256：
+
+```
+6346321d45b6c3da58247c039101635fa9ad0bc038d820a99770279211fa1a1f
 ```
 
 `esimSubscription.ipa` (29.11) SHA-256：

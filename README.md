@@ -1,176 +1,66 @@
-<p align="center">
-  <img src="assets/icon.png" width="128" height="128" alt="SIMHub">
-</p>
+<p align="center"><img src="assets/icon.png" width="128" height="128" alt="SIMHub"></p>
 
-<h1 align="center">SIMHub 下载</h1>
+# SIMHub Downloads
 
-SIMHub 是一款管理实体 SIM / eSIM 卡的 App（iPhone / iPad / Mac，以及 Android）：接上读卡器就能管理 eSIM 芯片卡里的 Profile，还能让读卡器里的卡直接在手机上用 Wi-Fi 通话收发短信、打接电话。
+[日本語](README.ja.md) · [Русский](README.ru.md)
 
-> **2026-10-07 起 SIMHub 已从 App Store 移除，正在申诉中。** 已经安装的用户可以继续使用，但无法从 App Store 重新下载。这里提供 IPA 安装包，供已有用户换机 / 重装使用。本仓库只放安装包，不含源代码。
+SIMHub manages physical SIM and eSIM cards on iPhone, iPad, Mac, and Android. With a compatible reader, it can manage profiles on a removable eSIM card and use that card for Wi-Fi Calling, SMS, and calls.
 
-## 下载
+> SIMHub has been unavailable on the App Store since 7 October 2026 while an appeal is in progress. Existing installations continue to work. This repository distributes installation packages only; it does not contain application source code.
 
-去 [Releases](../../releases) 页面下载：
+## Downloads
 
-| 平台 | 版本 | 文件 | 要求 | 说明 |
-|---|---|---|---|---|
-| iOS / iPadOS | **29.22 (3)** | `SIMHub-29.22.ipa` | iOS / iPadOS 17.0 及以上 | **用免费 Apple ID 自签下这个（大多数人）。** 已去掉免费账号签不了的权限和扩展，任何签名工具默认设置直接签 |
-| iOS / iPadOS（带小组件） | 29.22 (3) | `SIMHub-29.22-widgets.ipa` | iOS / iPadOS 17.0 及以上 | **只适合付费开发者账号自签。** 保留小组件和 App Group，签名工具要支持扩展签名；免费 Apple ID 签不了 |
-| iOS / iPadOS（旧系统） | SIMKit 7.0 (1) | `SIMKit.ipa` | iOS / iPadOS 15.0 及以上 | SIMHub 的 iOS 15 兼容版，见下方「SIMKit」 |
-| macOS | 29.22 (3) | `SIMHub-macOS-29.22.zip` | macOS 14 及以上 | 已通过 Apple 公证，见下方「Mac 版」 |
-| Android | 1.2 (1) | `SIMHub-Android-1.2.apk` | Android 8.0 及以上 | 见下方「Android 版」 |
+Download packages from [Releases](../../releases).
 
-## 怎么安装
+| Platform | Version | File | Requirement | Notes |
+| --- | --- | --- | --- | --- |
+| iOS / iPadOS | **29.22 (3)** | `SIMHub-29.22.ipa` | iOS / iPadOS 17+ | Re-sign with your own Apple ID. Recommended for free Apple IDs. |
+| iOS / iPadOS, widgets | 29.22 (3) | `SIMHub-29.22-widgets.ipa` | iOS / iPadOS 17+ | Requires a paid Apple Developer account. |
+| iOS / iPadOS, legacy | SIMKit 7.0 (1) | `SIMKit.ipa` | iOS / iPadOS 15+ | iOS 15/16-compatible edition. |
+| macOS | 29.22 (3) | `SIMHub-macOS-29.22.zip` | macOS 14+ | Notarized by Apple. |
+| Android | **23.0 (1)** | `SIMHub-Android-23.0.apk` | Android 8+ | [Community-signed APK](../../releases/tag/android-v23.0). |
 
-下载 **`SIMHub-29.22.ipa`**（Release 页里只需要这一个文件，「Source code」是 GitHub 自动生成的，不用下），用自己的 Apple ID 重新签名后安装，常用工具：
+## Installation
 
-- [AltStore](https://altstore.io)（Mac / Windows 配合 AltServer）
-- [Sideloadly](https://sideloadly.io)（Mac / Windows）
-- 其他自签工具（轻松签、牛蛙助手等）
+### iOS and iPadOS
 
-**提示「无法安装此 App，因为无法验证其完整性」**：这是把 IPA 直接装进手机、没有签名。IPA 必须先用你自己的 Apple ID 签一次才能装，直接拖进爱思助手「安装」是不行的。
+Download `SIMHub-29.22.ipa`, re-sign it with your own Apple ID, then install it. [AltStore](https://altstore.io), [Sideloadly](https://sideloadly.io), and other local signing tools can be used.
 
-用爱思助手的步骤（电脑版）：
+- A free Apple ID signature expires after seven days. Refresh it with the same tool; app data stays on the device.
+- The standard IPA omits iCloud sync, push notifications, widgets, and password AutoFill so it can be signed by a free Apple ID. Core reader, eSIM, Wi-Fi Calling, SMS, call, and card-ledger features remain available.
+- If the App Store build is installed, export a backup and remove it before installing a differently signed build. Import the backup afterwards.
+- “Unable to verify app integrity” means the IPA was not re-signed. Copying an IPA directly to a phone is not enough.
 
-1. 爱思助手 → 工具箱 → **IPA 签名**。
-2. 点「添加 IPA 文件」选 `SIMHub-29.22.ipa`。
-3. 签名方式选 **「使用 Apple ID 签名」**，点「添加 Apple ID」登录（建议用一个专门注册的 Apple ID，不要用主账号）。
-4. 勾上「签名后自动安装到设备」，点「开始签名」，等它装完。
-5. 手机上：设置 → 通用 → VPN 与设备管理 → 找到这个 Apple ID → 信任。
-6. 免费 Apple ID 签的 7 天到期，到期前在爱思「已签名」列表里点一下重签即可，数据不丢。
+### macOS
 
-重签时请注意：
+Unzip `SIMHub-macOS-29.22.zip`, move `SIMHub.app` to Applications, and open it. No re-signing is required. macOS supports USB readers, 4G modules, and relaying a reader or module to an iPhone over the local network or Tailscale.
 
-1. 免费 Apple ID 签出来的 App **7 天到期**，到期前用同一工具刷新一次即可，数据不会丢；付费开发者账号一年。
-2. 自签包里没有 iCloud 同步和推送；`SIMHub-29.22.ipa` 另外没有小组件和密码自动填充。其他功能（读卡器、eSIM 管理、Wi-Fi 通话、短信、电话、台账）都在。付费开发者账号可以签 `SIMHub-29.12-widgets.ipa` 拿回小组件。
-3. **手机上如果还装着 App Store 下载的 SIMHub，先导出备份再删掉它**，否则会提示无法安装（同一个 App 不能同时存在两种签名）。装好自签版后导入备份即可。
-4. 免费 Apple ID 一周内最多签 10 个 App ID、同时最多装 3 个自签 App，超了会安装失败，删掉一个再试。
-5. 重签后**一启动就闪退**：说明用的是 29.11 或更早的包，换 29.12 或更新的版本。
-6. 还是装不上：把签名工具最后的错误提示截图发到 Issues，并写明 iOS 版本和用的工具。
+### Android
 
-## SIMKit（iOS 15 兼容版）
+Open `SIMHub-Android-23.0.apk` on the device and allow the browser or file manager to install unknown apps when Android asks. No re-signing is required.
 
-[下载 SIMKit.ipa](../../releases/tag/simkit-v7.0)
+- Supports USB CCID readers (with USB OTG) and compatible Bluetooth card readers.
+- Supports Wi-Fi Calling, SMS, calls, card records, subscription tracking, and reminders.
+- This community-signed APK cannot update a build signed with a different certificate. Export an in-app backup, uninstall the other build, install this APK, then import the backup.
+- Emergency calling is not supported. Calls to mainland China (+86) are blocked.
 
-SIMKit 是 SIMHub 的 iOS 15 兼容版，功能与 SIMHub 基本一致，适合还在用 iOS 15 / 16 的 iPhone / iPad。系统是 iOS 17 及以上的，建议直接用上面的 SIMHub。
+## Main features
 
-- **安装**：与 SIMHub 的 IPA 相同，用自己的 Apple ID 重新签名后安装，注意事项见上方「怎么安装」。
-- SIMKit 与 SIMHub 是两个独立的 App，可以同时安装，数据不互通；迁移请用 App 内的导出 / 导入备份。
+- **eSIM management through readers:** read EID and ICCID; enable, disable, delete, and download profiles; support for compatible 5ber, Xesim, eSTK, 9eSIM, multi-chip cards, and SIM PIN.
+- **Wi-Fi Calling:** use a reader card for SMS and calls through IKEv2/IPsec, EAP-AKA, and IMS, with carrier-specific settings.
+- **4G modules and Mac/NAS relay:** use an external module as a card source or share a reader/module over a local network or Tailscale.
+- **Card ledger:** track subscriptions, usage, billing, and expiry reminders; calendar integration and widgets are available where supported.
 
-## Mac 版
+## Data, safety, and terms
 
-[下载 SIMHub-macOS-29.22.zip](../../releases/tag/mac-v29.22)
+Data remains on the device and, where enabled, in the user's own iCloud account. SIMHub does not use a third-party SIMHub server. Export an in-app backup before changing devices, reinstalling, or changing Android signing channels; iOS and Android backups are compatible.
 
-**安装**：下载后双击解压，把 `SIMHub.app` 拖进「应用程序」文件夹，双击打开。App 已通过 Apple 公证，不需要重签，也不会出现「无法验证开发者」的提示。
+Use SIMHub only with SIM cards and numbers that you legally own or are authorized to manage. The app does not read, export, or upload SIM secret keys; card authentication remains on the card. Do not use it for fraud, impersonation, harassment, spam, bulk registration, unauthorized access, or to evade carrier, identity-verification, billing, or regulatory requirements.
 
-**说明**：Mac 版支持 USB 读卡器和 4G 模块，也可以作为「Mac 转发」把插在 Mac 上的读卡器 / 模块卡借给 iPhone 使用。
+The software is provided “as is”, without warranty. You are responsible for complying with applicable law and carrier terms. SIMHub is independent and is not affiliated with any carrier, eSIM provider, or card-reader manufacturer.
 
-## Android 版
+## License
 
-[下载 SIMHub-Android-1.2.apk](../../releases/tag/android-v1.2)
+Copyright © 2025–2026 the SIMHub developer. All rights reserved.
 
-**安装**：在 Android 手机上下载 APK 后打开，按提示允许浏览器或文件管理器「安装未知应用」即可，不需要重签。
-
-**说明**：
-
-- Android 版的读卡器只支持 **USB（CCID）读卡器**，需要手机支持 USB OTG；暂不支持蓝牙读卡器、4G 模块和 Mac / NAS 转发。
-- Wi-Fi 通话、短信、打接电话（系统通话界面）、卡片台账与到期提醒等功能与 iOS 版一致。
-- 本 APK 与 Google Play 测试版**签名不同，不能互相覆盖安装**。换渠道前请先在 App 内导出备份，卸载后再安装新的。
-- 不支持紧急呼叫；为防诈骗，不支持拨打中国大陆号码（+86）。
-- 校验文件：Release 页面写有签名证书和 APK 的 SHA-256。
-
-## 主要功能
-
-- **读卡器 eSIM 管理**：USB（CCID）或蓝牙读卡器，读取 EID / ICCID，启用、停用、删除、下载 Profile；支持 5ber、Xesim、eSTK、9eSIM 等多芯片卡与 SIM PIN。
-- **Wi-Fi 通话**：读卡器里的卡直接在手机上收发短信、打接电话（IKEv2 / IPsec、EAP-AKA、IMS），带运营商适配表；电话风格的信息 / 通讯录 / 拨号 / 通话记录。
-- **4G 模块**：外接 4G 模块作为卡源。
-- **Mac / NAS 转发**：把 Mac 或 NAS 上的读卡器、模块卡经局域网或 Tailscale 借给手机用。
-- **卡片台账**：每张卡的订阅、流量、账单与到期提醒，日历集成、小组件；五种语言。
-
-## 数据安全
-
-- 所有数据只存在本机（和你自己的 iCloud），不经过任何第三方服务器。
-- 换机或重装前请先在 App 内**导出备份**，重装后再导入（iOS 与 Android 的备份文件互通）。
-
-## 校验
-
-`SIMHub-29.22.ipa` (29.22 (3)) SHA-256：
-
-```
-b9ff4d2b551b74a3ce8123f8e0cca3257556d934784e6963113600decc12241e
-```
-
-`SIMHub-29.22-widgets.ipa` (29.22 (3)) SHA-256：
-
-```
-b5aec67294e581a1680ec1b65b0b75fe7ab50438c8473528a85af452335df515
-```
-
-`SIMHub-29.12.ipa` (29.12 (3)) SHA-256：
-
-```
-7c6bab512f9d11d62c722d017fcd6592c768e2f1d4c7355178006df79ea01aa8
-```
-
-`SIMHub-29.12-widgets.ipa` (29.12 (3)) SHA-256：
-
-```
-70211c7fcf8eb704e4fb58cab130605928946cce8d31a323b75f7fa7225a7e79
-```
-
-`SIMHub-macOS-29.22.zip` (Mac 29.22 (3)) SHA-256：
-
-```
-6346321d45b6c3da58247c039101635fa9ad0bc038d820a99770279211fa1a1f
-```
-
-`esimSubscription.ipa` (29.11) SHA-256：
-
-```
-7e17d1411c244760e00971e0fb9ddbbfe7a6e8b84577130478e9261ec1b43af4
-```
-
-## 反馈
-
-问题和建议请发 [Issues](../../issues)。
-
-## 免责声明
-
-1. **仅供个人学习与研究使用。** 本仓库提供的安装包仅用于学习 SIM / eSIM、读卡器与 Wi-Fi 通话等相关技术，以及管理你本人合法持有的 SIM 卡和 eSIM。请勿用于任何商业用途。
-2. **只能用于你本人合法持有、已完成实名登记的号码和卡片。** 不得用于他人的卡片或号码，不得用于盗用、冒用他人身份，不得规避运营商的实名制、计费或其他服务条款。
-3. **严禁用于任何违法违规用途**，包括但不限于：电信网络诈骗、冒充他人或机构、骚扰电话与垃圾短信、批量注册或养号、为诈骗等违法活动提供通信帮助（「两卡」相关违法行为）、绕过监管或运营商限制。
-4. **防诈骗措施。** 本应用不支持拨打中国大陆号码（+86），也不支持紧急呼叫；不会读取、导出或上传 SIM 卡内的密钥，所有鉴权由 SIM 卡自身完成。请不要尝试修改或绕过这些限制。
-5. **请遵守你所在国家 / 地区的法律法规**以及运营商的服务条款。因使用本应用产生的一切后果，包括但不限于号码被运营商停用、费用损失、法律责任等，均由使用者自行承担。
-6. **按「现状」提供，不作任何保证。** 开发者不对本应用的可用性、稳定性及适用于特定用途作任何明示或暗示的保证，也不对因使用或无法使用本应用造成的任何直接或间接损失承担责任。
-7. **与运营商及厂商无关。** SIMHub 是独立开发的工具，与任何运营商、eSIM 服务商或读卡器厂商均无关联，文中提到的名称和商标归其各自所有者。
-8. 如发现有人利用本应用从事诈骗等违法活动，请立即向当地公安机关报案（中国大陆可拨打 110 或反诈专线 96110）。
-
-**下载、安装或使用本应用，即表示你已阅读并同意以上声明。**
-
-### Disclaimer (English)
-
-For **personal learning and research only**. Use it only with SIM cards and numbers that you legally own. Any illegal use — including telecom fraud, impersonation, harassment, spam, bulk registration, or circumventing carrier rules or real-name requirements — is strictly prohibited. The app blocks calls to mainland China numbers (+86), does not support emergency calls, and never reads or exports SIM secret keys. You are solely responsible for complying with local laws and carrier terms. The software is provided "as is" without warranty of any kind, and the developer is not liable for any loss or consequence arising from its use. SIMHub is independent and not affiliated with any carrier, eSIM provider or reader manufacturer.
-
-## 版权与许可（License）
-
-**Copyright © 2025–2026 SIMHub 开发者。保留所有权利（All rights reserved）。**
-
-本仓库提供的 SIMHub（iOS / Mac / Android）及 SIMKit 安装包为**专有软件（proprietary software），不是开源软件**，不适用任何开源许可证。开发者仅授予你一项**个人、非独占、不可转让、可撤销**的许可，允许你在本人持有的设备上安装并使用本软件，用于个人学习、研究以及管理本人合法持有的 SIM / eSIM。除此之外，**未经开发者书面许可，不得**：
-
-1. **反编译、反汇编、反向工程**本软件，或以任何方式尝试获取其源代码、协议实现与算法；
-2. **修改、翻译、改编**本软件或制作衍生作品，包括重签名后以其他名义发布；
-3. **复制、再分发、转载、出售、出租、出借**本软件，或将其作为其他产品、服务的一部分提供（本仓库 Release 页面的链接可以分享，安装包本身不得转载）；
-4. **用于任何商业用途**，包括但不限于收费提供、商业运营、嵌入商业服务；
-5. 去除或更改本软件中的版权声明、商标与标识。
-
-违反上述条款的，许可自动终止，开发者保留追究法律责任的权利。本软件中包含的第三方开源组件（国旗图标、PLMN 数据、AMR 编解码等）按其各自的许可证使用，相关声明见 App 内「关于」页。
-
-**下载、安装或使用本软件，即表示你已阅读并同意本许可条款及上文免责声明。**
-
-### License (English)
-
-**Copyright © 2025–2026 the SIMHub developer. All rights reserved.**
-
-The SIMHub (iOS / Mac / Android) and SIMKit packages in this repository are **proprietary software, not open source**, and no open-source license applies. You are granted a personal, non-exclusive, non-transferable, revocable license to install and use the software on devices you own, for personal learning and research and for managing SIM / eSIM cards you legally hold. Without the developer's written permission you may **not**: (1) decompile, disassemble or reverse-engineer the software, or attempt to obtain its source code, protocol implementation or algorithms; (2) modify, translate or adapt it or create derivative works, including re-signing and republishing it under another name; (3) copy, redistribute, mirror, sell, rent or lend the software, or bundle it into another product or service (sharing a link to this Releases page is fine; re-uploading the packages is not); (4) use it for any commercial purpose; (5) remove or alter any copyright, trademark or branding notices. Any breach terminates this license automatically, and the developer reserves the right to pursue legal remedies. Bundled third-party open-source components (flag icons, PLMN data, AMR codecs, etc.) remain under their own licenses; see the About page in the app.
-
-**By downloading, installing or using the software you agree to this license and to the disclaimer above.**
+SIMHub and SIMKit are proprietary software, not open source. You receive a personal, non-exclusive, non-transferable, revocable license to use them on devices you own for lawful personal learning, research, and management of SIM/eSIM cards you are entitled to manage. Without written permission, you may not reverse engineer, modify, translate, adapt, create derivative works from, redistribute, sell, rent, lend, commercially use, remove branding from, or re-sign and republish the software. Third-party components remain subject to their own licenses.
